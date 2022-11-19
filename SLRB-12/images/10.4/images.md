@@ -26,6 +26,8 @@ nano /etc/rsyncd.scrt
 backup:12345
 chmod 0600 /etc/rsyncd.scrt
 ```
+nano /root/scripts/backup-node1.sh
+
 ```
 #!/bin/bash
 date
