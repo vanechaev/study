@@ -1,6 +1,6 @@
 image
 -
-nano /etc/rsync.conf
+nano /etc/rsyncd.conf
 
 ```
 pid file = /var/run/rsyncd.pid
@@ -16,7 +16,7 @@ comment = Data backup Dir
 auth users = backup
 secrets file = /etc/rsyncd.scrt
 ```
-systemstl start rsync 
+systemctl start rsync 
 
 netstat -tulnp | grep rsync
 
