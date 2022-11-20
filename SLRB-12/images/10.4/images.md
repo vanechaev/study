@@ -53,3 +53,6 @@ ${syst_dir}${srv_name}/current/ --backup
 date
 echo "Finish backup ${srv_name}"
 ```
+chmod 0744  /root/scripts/backup-node1.sh 
+
+
