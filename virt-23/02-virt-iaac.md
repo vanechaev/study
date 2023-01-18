@@ -73,7 +73,7 @@ ansible [core 2.13.7]
   libyaml = True
 ```
 
-</details>
+<details>
 <summary>Задача 4 (*)</summary>
   
 > Воспроизвести практическую часть лекции самостоятельно.
