@@ -57,3 +57,24 @@ nva@Lenovo-G50-80:~/terraform/virt-04$ yc compute instance list
 #### Ответ:
 
 ![Screenshot](https://github.com/vanechaev/study/blob/main/virt-23/img/task3.png)
+
+<details>
+<summary>Задача 4</summary>
+
+> Откройте web браузер, зайдите на страницу http://<внешний_ip_адрес_вашей_ВМ>:3000.
+> Используйте для авторизации логин и пароль из ([.env-file](https://github.com/netology-group/virt-homeworks/blob/virt-11/05-virt-04-docker-compose/src/ansible/stack/.env)).
+> Изучите доступный интерфейс, найдите в интерфейсе автоматически созданные docker-compose панели с графиками([dashboards](https://grafana.com/docs/grafana/latest/dashboards/use-dashboards/)).
+> Подождите 5-10 минут, чтобы система мониторинга успела накопить данные.
+> 
+> Для получения зачета, вам необходимо предоставить: 
+> - Скриншот работающего веб-интерфейса Grafana с текущими метриками, как на примере ниже
+> <p align="center">
+>   <img width="1200" height="600" src="https://github.com/netology-group/virt-homeworks/blob/virt-11/05-virt-04-docker-compose/assets/yc_02.png">
+> </p>
+  
+ </details>
+
+#### Ответ:
+
+![Screenshot](https://github.com/vanechaev/study/blob/main/virt-23/img/task4-1.png)
+![Screenshot](https://github.com/vanechaev/study/blob/main/virt-23/img/task4-2.png)
