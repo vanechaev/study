@@ -45,7 +45,7 @@ nva@Lenovo-G50-80:~/terraform/virt-04$ yc compute instance list
 ![Screenshot](https://github.com/vanechaev/study/blob/37a191a71444443a220695abc8ba7e99474fb1cf/virt-23/img/task2.png)
 
 <details>
-<summary>Задача 2</summary>
+<summary>Задача 3</summary>
 
 > С помощью ansible+docker-compose разверните на виртуальной машине из предыдущего задания систему мониторинга на основе Prometheus/Grafana .
 > Используйте ansible код в директории ([src/ansible](https://github.com/netology-group/virt-homeworks/tree/virt-11/05-virt-04-docker-compose/src/ansible))
@@ -56,3 +56,4 @@ nva@Lenovo-G50-80:~/terraform/virt-04$ yc compute instance list
 
 #### Ответ:
 
+![Screenshot](https://github.com/vanechaev/study/blob/main/virt-23/img/task3.png)
