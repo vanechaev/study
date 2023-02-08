@@ -91,4 +91,18 @@ docker swarm update --autolock=true
 
 #### Ответ:
 
+```bash
+[root@node01 ~]# docker swarm update --autolock=true
+Swarm updated.
+To unlock a swarm manager after it restarts, run the `docker swarm unlock`
+command and provide the following key:
 
+SWMKEY-1-XSCrHB33lfi/4cDTuduodK8ueTkw8cXBYLmfnTMt8m0
+
+Please remember to store this key in a password manager, since without it you
+will not be able to restart the manager
+```
+- Это блокировка менеджера swarm. Она защищает конфигурацию данные сервиса от злоумышленников, которые получают доступ к зашифрованным логам Raft. Одна из причин, по которой эта функция была введена, заключалась в поддержке функции секретов Docker.
+
+О секретах:
+> С точки зрения сервисов Docker Swarm секрет — это блок данных, например пароль, закрытый ключ SSH, сертификат SSL или другой фрагмент данных, который не следует передавать по сети или хранить в незашифрованном виде в файле Docker или в папке приложения. Можно использовать секреты Docker для централизованного управления этими данными и безопасной передачи их только тем контейнерам, которым необходим доступ. Секреты шифруются во время передачи и в состоянии покоя в Docker Swarm. Данный секрет доступен только тем службам, которым был предоставлен явный доступ к нему, и только во время выполнения этих служебных задач.
