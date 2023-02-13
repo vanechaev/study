@@ -342,3 +342,70 @@ Filter: ("заказ" IS NOT NULL)
  
 #### Ответ:
 
+`Создайте бэкап БД test_db`
+``` bash
+nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker exec -t 3eff1e05c02e pg_dumpall -c -U postgres > ./backup/dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+```
+
+`Остановите контейнер с PostgreSQL`
+```bash
+nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker stop 3eff1e05c02e
+```
+
+`Поднимите новый пустой контейнер с PostgreSQL`
+```bash
+sudo docker run --name test_db_2 -e POSTGRES_PASSWORD=123 -d postgres:12
+```
+
+`Восстановите БД test_db в новом контейнере`
+```bash
+cat dump_13-02-2023_16_52_59.sql | docker exec -i 61546e4945a9 psql -U postgres
+```
+<details>
+  
+```bash
+  nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker ps
+[sudo] пароль для nva: 
+CONTAINER ID   IMAGE         COMMAND                  CREATED       STATUS       PORTS                                       NAMES
+3eff1e05c02e   postgres:12   "docker-entrypoint.s…"   4 hours ago   Up 4 hours   0.0.0.0:5432->5432/tcp                      test_db_1
+fcc6dccc3fcb   adminer       "entrypoint.sh php -…"   4 hours ago   Up 4 hours   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   test_adminer_1
+  nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker exec -t 3eff1e05c02e pg_dumpall -c -U postgres > ./backup/dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+  nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker stop 3eff1e05c02e
+[sudo] пароль для nva: 
+3eff1e05c02e
+nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS       PORTS                                       NAMES
+fcc6dccc3fcb   adminer   "entrypoint.sh php -…"   4 hours ago   Up 4 hours   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   test_adminer_1
+nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker ps -a
+CONTAINER ID   IMAGE                      COMMAND                  CREATED       STATUS                     PORTS                                       NAMES
+3eff1e05c02e   postgres:12                "docker-entrypoint.s…"   4 hours ago   Exited (0) 9 seconds ago                                               test_db_1
+fcc6dccc3fcb   adminer                    "entrypoint.sh php -…"   4 hours ago   Up 4 hours                 0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   test_adminer_1
+  nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker run --name test_db_2 -e POSTGRES_PASSWORD=123 -d postgres:12
+61546e4945a96bf0a523e3a69667d7998aca2a03ee06c34ef7264836400ee4c4
+nva@Lenovo-G50-80:~/Docker/postgres$ docker ps
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+nva@Lenovo-G50-80:~/Docker/postgres$ sudo docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+61546e4945a9   postgres:12   "docker-entrypoint.s…"   13 seconds ago   Up 12 seconds   5432/tcp                                    test_db_2
+fcc6dccc3fcb   adminer       "entrypoint.sh php -…"   5 hours ago      Up 5 hours      0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   test_adminer_1
+nva@Lenovo-G50-80:~/Docker/postgres$ sudo cat dump_13-02-2023_16_50_43.sql | docker exec -i 61546e4945a9 psql -U postgres
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/61546e4945a9/json": dial unix /var/run/docker.sock: connect: permission denied
+nva@Lenovo-G50-80:~/Docker/postgres$ cd backup/
+nva@Lenovo-G50-80:~/Docker/postgres/backup$ sudo -i
+root@Lenovo-G50-80:~# cd /home/nva/Docker/postgres/backup/
+root@Lenovo-G50-80:/home/nva/Docker/postgres/backup# cat dump_13-02-2023_16_52_59.sql | docker exec -i 61546e4945a9 psql -U postgres
+SET
+SET
+SET
+ERROR:  database "test_db" does not exist
+ERROR:  current user cannot be dropped
+ERROR:  role "test_admin_user" does not exist
+ERROR:  role "test_simple_user" does not exist
+ERROR:  role "postgres" already exists
+ALTER ROLE
+CREATE ROLE
+ALTER ROLE
+CREATE ROLE
+  ...
+  
+</details>
