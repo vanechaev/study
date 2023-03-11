@@ -223,4 +223,10 @@ id |        title         | price
 ```bash
   root@b0b2ac75d473:/# pg_dump -U postgres -d test_database > /backup/dump_test-database.sql
 ```
-Как сам бекап доработать я не знаю, но скорее всего изменил ограничение таблиц [UNIQUE](https://metanit.com/sql/postgresql/2.6.php)
+Как сам бекап доработать я не знаю, но скорее всего изменил ограничение таблиц [UNIQUE](https://metanit.com/sql/postgresql/2.6.php) 
+  ```sql
+ALTER TABLE orders
+ALTER TABLE orders_1
+ALTER TABLE orders_2
+ADD UNIQUE (title);
+  ```
