@@ -133,4 +133,88 @@ price   |         4
   
 </details>
 
+<details>
+<summary>Задача 3</summary>
+   
+> Архитектор и администратор БД выяснили, что ваша таблица orders разрослась до невиданных размеров и
+> поиск по ней занимает долгое время. Вам как успешному выпускнику курсов DevOps в Нетологии предложили
+> провести разбиение таблицы на 2: шардировать на orders_1 - price>499 и orders_2 - price<=499.
+>
+> Предложите SQL-транзакцию для проведения этой операции.
+>
+> Можно ли было изначально исключить ручное разбиение при проектировании таблицы orders?
+
+</details>
+ 
+#### Ответ:
+  
+```sql
+BEGIN;
+CREATE TABLE orders_1 (LIKE orders);
+INSERT INTO orders_1 SELECT * FROM orders WHERE price >499;
+DELETE FROM orders WHERE price >499;
+CREATE TABLE orders_2 (LIKE orders);
+INSERT INTO orders_2 SELECT * FROM orders WHERE price <=499;
+DELETE FROM orders WHERE price <=499;
+COMMIT;
+```
+  
+<details>
+  
+```bash
+test_database=# BEGIN;
+CREATE TABLE orders_1 (LIKE orders);
+INSERT INTO orders_1 SELECT * FROM orders WHERE price >499;
+DELETE FROM orders WHERE price >499;
+CREATE TABLE orders_2 (LIKE orders);
+INSERT INTO orders_2 SELECT * FROM orders WHERE price <=499;
+DELETE FROM orders WHERE price <=499;
+COMMIT;
+BEGIN
+CREATE TABLE
+INSERT 0 3
+DELETE 3
+CREATE TABLE
+INSERT 0 5
+DELETE 5
+COMMIT
+test_database=# SELECT * FROM public.orders;
+id | title | price
+----+-------+-------
+(0 rows)
+
+test_database=# SELECT * FROM public.orders_1;
+id |       title        | price
+----+--------------------+-------
+2 | My little database |   500
+6 | WAL never lies     |   900
+8 | Dbiezdmin          |   501
+(3 rows)
+
+test_database=# SELECT * FROM public.orders_2;
+id |        title         | price
+----+----------------------+-------
+1 | War and peace        |   100
+3 | Adventure psql time  |   300
+4 | Server gravity falls |   300
+5 | Log gossips          |   123
+7 | Me and my bash-pet   |   499
+(5 rows)
+```
+  
+</details>
+  
+Для исключения ручного разбиения при проектировании таблицы orders необходимо использовать декларативное секционирование с предложением PARTITION BY. 
+[ссылка](https://postgrespro.ru/docs/postgrespro/14/ddl-partitioning#DDL-PARTITIONING-DECLARATIVE)
+  
+<details>
+<summary>Задача 4</summary>
+
+> Используя утилиту `pg_dump`, создайте бекап БД `test_database`.
+>
+> Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
+  
+</details>
+ 
+#### Ответ:
   
