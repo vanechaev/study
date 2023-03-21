@@ -109,33 +109,41 @@ is 1.4.2. You can update by downloading from https://www.terraform.io/downloads.
 
 #### Ответ:
 
-Скачал файл
-````bash
-curl -o https://hashicorp-releases.yandexcloud.net/terraform/0.13.0/terraform_0.13.0_linux_amd64.zip
-```
-Распаковал
-````bash
-unzip terraform_0.13.0_linux_amd64.zip
-```
-симлинк на существующий
-````bash
-sudo ln -s /usr/bin/terraform /usr/bin/terraform_1.3.7
-```
-симлинк на распакованный
-````bash
-sudo ln -s /home/nva/terraform-0-13/ /usr/bin/terraform_0.13
-```
-
 ```bash
-nva@Lenovo-G50-80:~/Docker/elasticsearch$ terraform_0.13 --version
-
-Your version of Terraform is out of date! The latest version
-is 1.4.2. You can update by downloading from https://www.terraform.io/downloads.html
-Terraform v0.13.0
-nva@Lenovo-G50-80:~/Docker/elasticsearch$ terraform_1.3.7 --version
+nva@Lenovo-G50-80:~/Docker/elasticsearch$ terraform_1.3.7 --version && terraform_0.13 --version
 Terraform v1.3.7
 on linux_amd64
 
 Your version of Terraform is out of date! The latest version
 is 1.4.2. You can update by downloading from https://www.terraform.io/downloads.html
+
+Your version of Terraform is out of date! The latest version
+is 1.4.2. You can update by downloading from https://www.terraform.io/downloads.html
+Terraform v0.13.0
 ```
+<details>
+  Скачал файл
+  
+```bash
+curl -o https://hashicorp-releases.yandexcloud.net/terraform/0.13.0/terraform_0.13.0_linux_amd64.zip
+```
+
+Распаковал
+  
+```bash
+unzip terraform_0.13.0_linux_amd64.zip
+```
+
+симлинк на существующий
+  
+```bash
+sudo ln -s /usr/bin/terraform /usr/bin/terraform_1.3.7
+```
+
+симлинк на распакованный
+  
+```bash
+sudo ln -s /home/nva/terraform-0-13/ /usr/bin/terraform_0.13
+```
+
+  </details>
