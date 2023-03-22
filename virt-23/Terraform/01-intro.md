@@ -1,7 +1,7 @@
 ## Домашнее задание к занятию "Введение в Terraform" - Нечаев Владимир
 
 <details>
-<summary>Задача 1</summary>
+<summary>Задание 1</summary>
 
 > 1. Перейдите в каталог [**src**](https://github.com/netology-code/ter-homeworks/tree/main/01/src). 
   Скачайте все необходимые зависимости, использованные в проекте. 
@@ -200,3 +200,84 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 
 Так я же его сам скачивал, терраформ ругался что нет образа и сам его не закачивал, соответственно и не удалил. )))
 
+<details>
+<summary>Задание 2*</summary>
+  
+> 1. Изучите в документации provider [**Virtualbox**](https://registry.tfpla.net/providers/shekeriev/virtualbox/latest/docs/overview/index) от 
+> shekeriev.
+> 2. Создайте с его помощью любую виртуальную машину.
+>
+> В качестве ответа приложите plan для создаваемого ресурса.
+
+  
+  </details>
+
+#### Ответ:
+
+```bash
+nva@Lenovo-G50-80:~/terraform/virt-23/ter-homeworks/01/src/vb$ terraform apply
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
+following symbols:
++ create
+
+Terraform will perform the following actions:
+
+# virtualbox_vm.vm1 will be created
++ resource "virtualbox_vm" "vm1" {
++ cpus   = 1
++ id     = (known after apply)
++ image  = "https://app.vagrantup.com/shekeriev/boxes/debian-11/versions/0.2/providers/virtualbox.box"
++ memory = "512 mib"
++ name   = "debian-11"
++ status = "running"
+
++ network_adapter {
++ device                 = "IntelPro1000MTDesktop"
++ host_interface         = "vboxnet1"
++ ipv4_address           = (known after apply)
++ ipv4_address_available = (known after apply)
++ mac_address            = (known after apply)
++ status                 = (known after apply)
++ type                   = "hostonly"
+}
+}
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
++ IPAddress = (known after apply)
+
+Do you want to perform these actions?
+Terraform will perform the actions described above.
+Only 'yes' will be accepted to approve.
+
+Enter a value: yes
+
+virtualbox_vm.vm1: Creating...
+virtualbox_vm.vm1: Still creating... [10s elapsed]
+virtualbox_vm.vm1: Still creating... [20s elapsed]
+virtualbox_vm.vm1: Still creating... [30s elapsed]
+virtualbox_vm.vm1: Still creating... [40s elapsed]
+virtualbox_vm.vm1: Still creating... [50s elapsed]
+virtualbox_vm.vm1: Still creating... [1m0s elapsed]
+virtualbox_vm.vm1: Still creating... [1m10s elapsed]
+virtualbox_vm.vm1: Still creating... [1m20s elapsed]
+virtualbox_vm.vm1: Still creating... [1m30s elapsed]
+virtualbox_vm.vm1: Still creating... [1m40s elapsed]
+virtualbox_vm.vm1: Still creating... [1m50s elapsed]
+virtualbox_vm.vm1: Still creating... [2m0s elapsed]
+virtualbox_vm.vm1: Still creating... [2m10s elapsed]
+╷
+│ Error: unable to start VM: exit status 1
+│
+│   with virtualbox_vm.vm1,
+│   on main.tf line 15, in resource "virtualbox_vm" "vm1":
+│   15: resource "virtualbox_vm" "vm1" {
+│
+╵
+nva@Lenovo-G50-80:~/terraform/virt-23/ter-homeworks/01/src/vb$ VBoxManage list vms
+"kali-linux-2022.4-virtualbox-amd64" {1b908152-38ed-4fa3-8e81-c60adf3e1102}
+"server1.netology" {5885ac4f-9281-43aa-a41a-1ad3c5f8ffe5}
+"debian-11" {cbfc7669-2a2c-44d1-88b6-8cb7cf661213}
+```
