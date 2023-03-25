@@ -645,3 +645,218 @@ Changes to Outputs:
 
 #### Ответ:
 
+<details>
+  
+```terraform
+nva@Lenovo-G50-80:~/terraform/virt-23/ter-homeworks/02/src$ terraform plan
+data.yandex_compute_image.ubuntu: Reading...
+data.yandex_compute_image.ubuntu: Read complete after 0s [id=fd8snjpoq85qqv0mk9gi]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
+following symbols:
++ create
+
+Terraform will perform the following actions:
+
+# yandex_compute_instance.netology-develop-platform-db will be created
++ resource "yandex_compute_instance" "netology-develop-platform-db" {
++ created_at                = (known after apply)
++ folder_id                 = (known after apply)
++ fqdn                      = (known after apply)
++ hostname                  = (known after apply)
++ id                        = (known after apply)
++ metadata                  = {
++ "serial-port-enable" = "true"
++ "ssh-keys"           = <<-EOT
+ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDM0Vr4rfdR+ttUJjTS+OoAp6exahkQ+9V+BQCL5/+tG0WLWZL4PKPFKTOl7STftoqYmXE3xGDj3T+tAZKtdPLhrYPxDjd7S/qoIRmEWbxMkSFRolJoyxMnzpPCYgRIr5RENpcaKWsY5Ty/cH5GNRw1Wxuqg5bSzMMmW7a51reKtSCQ/PhqxXgxgnEgSlf5rxnBekJo/Z9APtAq1WFG2IMg0eE2T9mibrn7LxBIasKMKf15K7+evDhTTG+1jRSBfqnJzErLNmgcpmv6hvxbFtGIDn/O+VQeA4s5XfGSLU3uiBXdjrKeC8N5QZA0Q3VSOYuhKTM3XkZD1Oo0F3v3gEntXyG6SiZqcDuSATms4UprbgZLI0KYTgVT0fXq6k6fMOP69AY400s/zIIoncKUSX1Za+s//n0hfenxfndz4xJyAgctmDZ9JBDTa3fkaKZ43Mpz4QTIIE/Zh7jpxKr1gaefteWhE8L1vpbNtUZLYZpMFXdB9ul7NDywTcD8YPMWWPE= nva@Lenovo-G50-80
+EOT
+}
++ name                      = "netology-develop-platform-db"
++ network_acceleration_type = "standard"
++ platform_id               = "standard-v1"
++ service_account_id        = (known after apply)
++ status                    = (known after apply)
++ zone                      = (known after apply)
+
++ boot_disk {
++ auto_delete = true
++ device_name = (known after apply)
++ disk_id     = (known after apply)
++ mode        = (known after apply)
+
++ initialize_params {
++ block_size  = (known after apply)
++ description = (known after apply)
++ image_id    = "fd8snjpoq85qqv0mk9gi"
++ name        = (known after apply)
++ size        = (known after apply)
++ snapshot_id = (known after apply)
++ type        = "network-hdd"
+}
+}
+
++ metadata_options {
++ aws_v1_http_endpoint = (known after apply)
++ aws_v1_http_token    = (known after apply)
++ gce_http_endpoint    = (known after apply)
++ gce_http_token       = (known after apply)
+}
+
++ network_interface {
++ index              = (known after apply)
++ ip_address         = (known after apply)
++ ipv4               = true
++ ipv6               = (known after apply)
++ ipv6_address       = (known after apply)
++ mac_address        = (known after apply)
++ nat                = true
++ nat_ip_address     = (known after apply)
++ nat_ip_version     = (known after apply)
++ security_group_ids = (known after apply)
++ subnet_id          = (known after apply)
+}
+
++ placement_policy {
++ host_affinity_rules = (known after apply)
++ placement_group_id  = (known after apply)
+}
+
++ resources {
++ core_fraction = 20
++ cores         = 2
++ memory        = 2
+}
+
++ scheduling_policy {
++ preemptible = true
+}
+}
+
+# yandex_compute_instance.platform will be created
++ resource "yandex_compute_instance" "platform" {
++ created_at                = (known after apply)
++ folder_id                 = (known after apply)
++ fqdn                      = (known after apply)
++ hostname                  = (known after apply)
++ id                        = (known after apply)
++ metadata                  = {
++ "serial-port-enable" = "true"
++ "ssh-keys"           = <<-EOT
+ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDM0Vr4rfdR+ttUJjTS+OoAp6exahkQ+9V+BQCL5/+tG0WLWZL4PKPFKTOl7STftoqYmXE3xGDj3T+tAZKtdPLhrYPxDjd7S/qoIRmEWbxMkSFRolJoyxMnzpPCYgRIr5RENpcaKWsY5Ty/cH5GNRw1Wxuqg5bSzMMmW7a51reKtSCQ/PhqxXgxgnEgSlf5rxnBekJo/Z9APtAq1WFG2IMg0eE2T9mibrn7LxBIasKMKf15K7+evDhTTG+1jRSBfqnJzErLNmgcpmv6hvxbFtGIDn/O+VQeA4s5XfGSLU3uiBXdjrKeC8N5QZA0Q3VSOYuhKTM3XkZD1Oo0F3v3gEntXyG6SiZqcDuSATms4UprbgZLI0KYTgVT0fXq6k6fMOP69AY400s/zIIoncKUSX1Za+s//n0hfenxfndz4xJyAgctmDZ9JBDTa3fkaKZ43Mpz4QTIIE/Zh7jpxKr1gaefteWhE8L1vpbNtUZLYZpMFXdB9ul7NDywTcD8YPMWWPE= nva@Lenovo-G50-80
+EOT
+}
++ name                      = "netology-develop-platform-web"
++ network_acceleration_type = "standard"
++ platform_id               = "standard-v1"
++ service_account_id        = (known after apply)
++ status                    = (known after apply)
++ zone                      = (known after apply)
+
++ boot_disk {
++ auto_delete = true
++ device_name = (known after apply)
++ disk_id     = (known after apply)
++ mode        = (known after apply)
+
++ initialize_params {
++ block_size  = (known after apply)
++ description = (known after apply)
++ image_id    = "fd8snjpoq85qqv0mk9gi"
++ name        = (known after apply)
++ size        = (known after apply)
++ snapshot_id = (known after apply)
++ type        = "network-hdd"
+}
+}
+
++ metadata_options {
++ aws_v1_http_endpoint = (known after apply)
++ aws_v1_http_token    = (known after apply)
++ gce_http_endpoint    = (known after apply)
++ gce_http_token       = (known after apply)
+}
+
++ network_interface {
++ index              = (known after apply)
++ ip_address         = (known after apply)
++ ipv4               = true
++ ipv6               = (known after apply)
++ ipv6_address       = (known after apply)
++ mac_address        = (known after apply)
++ nat                = true
++ nat_ip_address     = (known after apply)
++ nat_ip_version     = (known after apply)
++ security_group_ids = (known after apply)
++ subnet_id          = (known after apply)
+}
+
++ placement_policy {
++ host_affinity_rules = (known after apply)
++ placement_group_id  = (known after apply)
+}
+
++ resources {
++ core_fraction = 5
++ cores         = 2
++ memory        = 1
+}
+
++ scheduling_policy {
++ preemptible = true
+}
+}
+
+# yandex_vpc_network.develop will be created
++ resource "yandex_vpc_network" "develop" {
++ created_at                = (known after apply)
++ default_security_group_id = (known after apply)
++ folder_id                 = (known after apply)
++ id                        = (known after apply)
++ labels                    = (known after apply)
++ name                      = "develop"
++ subnet_ids                = (known after apply)
+}
+
+# yandex_vpc_subnet.develop will be created
++ resource "yandex_vpc_subnet" "develop" {
++ created_at     = (known after apply)
++ folder_id      = (known after apply)
++ id             = (known after apply)
++ labels         = (known after apply)
++ name           = "develop"
++ network_id     = (known after apply)
++ v4_cidr_blocks = [
++ "10.0.1.0/24",
+]
++ v6_cidr_blocks = (known after apply)
++ zone           = "ru-central1-a"
+}
+
+Plan: 4 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
++ external_ip_address_netology-develop-platform-db_yandex_cloud = (known after apply)
++ external_ip_address_platform_yandex_cloud                     = (known after apply)
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run
+"terraform apply" now.
+```
+</details>
+
+<details>
+<summary>Задание 7*</summary>
+
+Изучите содержимое файла console.tf. Откройте terraform console, выполните следующие задания: 
+
+1. Напишите, какой командой можно отобразить **второй** элемент списка test_list?
+2. Найдите длину списка test_list с помощью функции length(<имя переменной>).
+3. Напишите, какой командой можно отобразить значение ключа admin из map test_map ?
+4. Напишите interpolation выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map, servers и функцию length() для подстановки значений.
+
+В качестве решения предоставьте необходимые команды и их вывод.
+  
+</details>
+
+#### Ответ:
