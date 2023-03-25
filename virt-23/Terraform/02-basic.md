@@ -860,3 +860,38 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 </details>
 
 #### Ответ:
+
+1.
+  
+```terraform
+  > local.test_list[1]
+"staging"
+```
+2.
+  
+```terraform
+  > length(local.test_list)
+3
+```
+  
+ 3. 
+
+```terraform
+ > local.test_map.admin
+"John"
+>
+```
+  
+4.
+  
+```terraform
+ > local.test_map.admin
+"John"
+>
+```
+  
+5. Возможно так, но я не уверн ))))
+  
+  `$(join(" ","local.test_map.admin","is admin for","local.test_list[2]","based on OS","local.servers.stage.image","with local.servers.production.cpu vpc,","local.servers.production.ram ram,","and","local.servers.production.disks disks")`
+  
+[Файлы домашнего задания]()
