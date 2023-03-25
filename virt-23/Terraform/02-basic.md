@@ -894,4 +894,4 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
   
   `$(join(" ","local.test_map.admin","is admin for","local.test_list[2]","based on OS","local.servers.stage.image","with local.servers.production.cpu vpc,","local.servers.production.ram ram,","and","local.servers.production.disks disks")`
   
-[Файлы домашнего задания]()
+[Файлы домашнего задания](https://github.com/vanechaev/study/tree/main/virt-23/Terraform/files/02)
