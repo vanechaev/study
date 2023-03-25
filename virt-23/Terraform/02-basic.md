@@ -426,7 +426,6 @@ external_ip_address_netology-develop-platform-db_yandex_cloud = "158.160.55.187"
 external_ip_address_platform_yandex_cloud = "51.250.70.247"
 ```
 
-
 <details>
 <summary>Задание 5</summary>
 
@@ -633,3 +632,16 @@ Changes to Outputs:
 ```
 
 </details>
+
+<details>
+<summary>Задание 6</summary>
+
+1. Вместо использования 3-х переменных  ".._cores",".._memory",".._core_fraction" в блоке  resources {...}, объедените их в переменные типа **map** с именами "vm_web_resources" и "vm_db_resources".
+2. Так же поступите с блоком **metadata {serial-port-enable, ssh-keys}**, эта переменная должна быть общая для всех ваших ВМ.
+3. Найдите и удалите все более не используемые переменные проекта.
+4. Проверьте terraform plan (изменений быть не должно).
+  
+</details>
+
+#### Ответ:
+
