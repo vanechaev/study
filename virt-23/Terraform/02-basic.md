@@ -890,8 +890,11 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 >
 ```
   
-5. Возможно так, но я не уверн ))))
+5. 
   
-  `$(join(" ","local.test_map.admin","is admin for","local.test_list[2]","based on OS","local.servers.stage.image","with local.servers.production.cpu vpc,","local.servers.production.ram ram,","and","local.servers.production.disks disks")`
+```terraform
+> "${local.test_map.admin} is admin for ${local.test_list[2]} based on OS ${local.servers.stage.image} with ${local.servers.production.cpu} vcpu, ${local.servers.production.ram} ram and ${length(local.servers.production.disks)} virtual disks"
+> "John is admin for production based on OS ubuntu-20-04 with 10 vcpu, 40 ram and 4 virtual disks"
+```
   
 [Файлы домашнего задания](https://github.com/vanechaev/study/tree/main/virt-23/Terraform/files/02)
