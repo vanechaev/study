@@ -136,6 +136,10 @@ yandex_vpc_security_group.example: Creation complete after 1s [id=enp1hk143kfs1d
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 ```
+
+ </details>
+
+![](https://github.com/vanechaev/study/blob/terraform-03/virt-23/Terraform/img/zadanie_3-1.png)  
   
 <details>
 <summary>Задание 2</summary>
@@ -152,5 +156,82 @@ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
 #### Ответ:
 
+count-vm.tf
 
+```terraform
+resource "yandex_compute_instance" "example" {
+  name        = "netology-develop-platform-web-${count.index}"
+  platform_id = "standard-v1"
+
+  count = 2
+
+  resources {
+    cores  = 2
+    memory = 1
+    core_fraction = 20
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu.image_id
+      type = "network-hdd"
+      size = 5
+    }
+  }
+
+  metadata = {
+    ssh-keys = "ubuntu:${file(var.public_key)}"
+  }
+
+  scheduling_policy { preemptible = true }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+  }
+  allow_stopping_for_update = true
+}
+```
+
+for_each-vm.tf
+
+```terraform
+resource "yandex_compute_instance" "vm" {
+  for_each = {
+    "vm1" = { vm_cpu = "4", vm_ram = "2", vm_disk = "5" }
+    "vm2" = { vm_cpu = "2", vm_ram = "1", vm_disk = "7" }
+ }
+
+  name = each.key
+  platform_id = "standard-v1"
+
+  resources {
+    cores  = each.value.vm_cpu
+    memory = each.value.vm_ram
+    core_fraction = 20
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu.image_id
+      type = "network-hdd"
+      size = each.value.vm_disk
+    }
+  }
+
+  metadata = {
+    ssh-keys = "ubuntu:${file(var.public_key)}"
+  }
+
+  scheduling_policy { preemptible = true }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+  }
+  allow_stopping_for_update = true
+}
+```
+
+![](https://github.com/vanechaev/study/blob/terraform-03/virt-23/Terraform/img/zadanie_3-2.png)
 
