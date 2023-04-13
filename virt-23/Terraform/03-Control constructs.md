@@ -197,17 +197,14 @@ for_each-vm.tf
 
 ```terraform
 resource "yandex_compute_instance" "vm" {
-  for_each = {
-    "vm1" = { vm_cpu = "4", vm_ram = "2", vm_disk = "5" }
-    "vm2" = { vm_cpu = "2", vm_ram = "1", vm_disk = "7" }
- }
+  for_each = {for vm in var.vm: vm.name => vm}
 
-  name = each.key
+  name = "${each.value.name}"
   platform_id = "standard-v1"
 
   resources {
-    cores  = each.value.vm_cpu
-    memory = each.value.vm_ram
+    cores  = "${each.value.cpu}"
+    memory = "${each.value.ram}"
     core_fraction = 20
   }
 
@@ -215,7 +212,7 @@ resource "yandex_compute_instance" "vm" {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.image_id
       type = "network-hdd"
-      size = each.value.vm_disk
+      size = "${each.value.disk}"
     }
   }
 
@@ -234,4 +231,17 @@ resource "yandex_compute_instance" "vm" {
 ```
 
 ![](https://github.com/vanechaev/study/blob/terraform-03/virt-23/Terraform/img/zadanie_3-2.png)
+
+<details>
+<summary>Задание 3</summary>
+
+1. Создайте 3 одинаковых виртуальных диска, размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count.
+2. Создайте одну **любую** ВМ. Используйте блок **dynamic secondary_disk{..}** и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
+3. Назначьте ВМ созданную в 1-м задании группу безопасности.
+
+------
+
+</details>
+
+#### Ответ:
 
