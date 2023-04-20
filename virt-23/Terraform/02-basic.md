@@ -255,8 +255,8 @@ locals.tf:
 ```terraform
 nva@Lenovo-G50-80:~/terraform/virt-23/ter-homeworks/02/src$ cat locals.tf
 locals {
-web_name = "netology-develop-platform-web"
-db_name = "netology-develop-platform-db"
+web_name = "netology–${ var.env }–${ var.project }–${ var.role }"
+web_name = "netology–${ var.env }–${ var.project }–${ var.role2 }"
 }
 ```
 
