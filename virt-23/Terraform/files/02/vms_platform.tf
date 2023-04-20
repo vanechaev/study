@@ -66,6 +66,24 @@ variable "spe" {
   default     = "1"
   description = "serial-port-enable"
 }
+
+variable "env" {
+  default = "develop"
+}
+
+variable "project"  {
+  default = "platform"
+}
+
+variable "role" {
+  default = "web"
+}
+
+variable "role2" {
+  default = "db"
+} 
+
+
 ###ssh vars
 
 variable "vms_ssh_root_key" {
