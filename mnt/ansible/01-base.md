@@ -21,3 +21,46 @@
 #### Ответ:
 
 1. 
+```ansible
+[nva@localhost playbook]$ ansible-playbook site.yml -i inventory/test.yml 
+
+PLAY [Print os facts] *****************************************************************
+
+TASK [Gathering Facts] ****************************************************************
+[WARNING]: Platform linux on host localhost is using the discovered Python interpreter
+at /usr/bin/python3.8, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.13/reference_appendices/interpreter_discovery.html for more information.
+ok: [localhost]
+
+TASK [Print OS] ***********************************************************************
+ok: [localhost] => {
+    "msg": "REDOS"
+}
+
+TASK [Print fact] *********************************************************************
+ok: [localhost] => {
+    "msg": 12
+}
+
+PLAY RECAP ****************************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+```
+
+2.
+```bash
+[nva@localhost playbook]$ cd group_vars/all/
+[nva@localhost all]$ cat examp.yml 
+---
+  some_fact: "all default fact"
+```
+
+3.
+```bash
+[nva@localhost all]$ sudo docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+ubuntu        latest    08d22c0ceb15   6 weeks ago     77.8MB
+hello-world   latest    feb5d9fea6a5   19 months ago   13.3kB
+centos        latest    5d0da3dc9764   19 months ago   231MB
+```
+4.
