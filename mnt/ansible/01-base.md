@@ -63,4 +63,17 @@ ubuntu        latest    08d22c0ceb15   6 weeks ago     77.8MB
 hello-world   latest    feb5d9fea6a5   19 months ago   13.3kB
 centos        latest    5d0da3dc9764   19 months ago   231MB
 ```
-4.
+4. Выдает такую ошибку все ещё в поиске её решения...
+```bash
+[nva@localhost playbook]$ ansible-playbook site.yml -i inventory/prod.yml 
+
+PLAY [Print os facts] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+fatal: [centos7]: FAILED! => {"msg": "the connection plugin 'docker' was not found"}
+fatal: [ubuntu]: FAILED! => {"msg": "the connection plugin 'docker' was not found"}
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+ubuntu                     : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+```
