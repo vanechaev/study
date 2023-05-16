@@ -409,6 +409,52 @@ yandex_compute_instance.example[0]: Creation complete after 34s [id=fhm55vl9o2s1
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed
 ```
+</details>
+
+3. Назначьте ВМ созданную в 1-м задании группу безопасности.
+```bash
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+    security_group_ids = [yandex_vpc_security_group.example.id]
+  }
+```
+
+<details>
+<summary>Задание 4</summary>
+
+1. Создайте inventory-файл для ansible.
+Используйте функцию tepmplatefile и файл-шаблон для создания ansible inventory-файла из лекции.
+Готовый код возьмите из демонстрации к лекции [**demonstration2**](https://github.com/netology-code/ter-homeworks/tree/main/demonstration2).
+Передайте в него в качестве переменных имена и внешние ip-адреса ВМ из задания 2.1 и 2.2.
+2. Выполните код. Приложите скриншот получившегося файла.
   
 </details>
 
+#### Ответ:
+
+1. Сам код:
+
+```terraform
+resource "local_file" "hosts_cfg" {
+  content = templatefile("${path.module}/hosts.tftpl",
+    {
+      webservers  = yandex_compute_instance.example
+      webservers1 = yandex_compute_instance.vm
+    }
+  )
+  filename = "${abspath(path.module)}/hosts.cfg"
+}
+```
+2. Вывод файла:
+
+```bash
+...
+Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
+nva@Lenovo-G50-80:~/terraform/virt-23/ter-homeworks/03/src$ cat hosts.cfg 
+[webservers]
+
+netology-develop-platform-web-0   ansible_host=62.84.116.253
+vm1   ansible_host=158.160.53.114
+vm2   ansible_host=51.250.8.103
+```
