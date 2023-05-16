@@ -458,3 +458,4 @@ netology-develop-platform-web-0   ansible_host=62.84.116.253
 vm1   ansible_host=158.160.53.114
 vm2   ansible_host=51.250.8.103
 ```
+[Файлы домашнего задания](https://github.com/vanechaev/study/tree/cabea77cce578cd76d19e2b998a9b9f05425af54/virt-23/Terraform/files/03)
