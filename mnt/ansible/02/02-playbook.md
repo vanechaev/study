@@ -111,7 +111,12 @@
       tags:
         - vector
 ```
-2-6. Запустил playbook на этом окружении с флагом `--check`
+2-6. Запустил playbook на этом окружении `ansible-lint site.yml`  и с флагом `--check`
+```bash
+ubuntu@ubuntu-2204:~/ansible/02$ sudo ansible-lint site.yml 
+WARNING  Overriding detected file kind 'yaml' with 'playbook' for given positional argument: site.yml
+```
+
 ```bash
 sudo ansible-playbook -i inventory/prod.yml site.yml --check
 [WARNING]: Found both group and host with same name: vector
