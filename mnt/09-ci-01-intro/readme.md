@@ -42,5 +42,27 @@
 
 ### Ответ:
 
-***Доска KANBAN:***
+**жизненный цикл - bug:**
 
+![bug](img/ci-01-01.png)
+
+**жизненный цикл - упрощённого workflow:**
+
+![bug](img/ci-01-02.png)
+
+**доска kanban:**
+
+![bug](img/ci-01-03-kanban.png)
+
+**вернул задачи в статус Open:**
+
+![bug](img/ci-01-03-kanban-open.png)
+
+**спринт доска scrum:**
+
+![bug](img/ci-01-04-scrum.png)
+
+**Файлы с workflow в XML:**
+
+- [bug](xml/bug.xml)
+- [task](xml/Workflow for netology.xml)
