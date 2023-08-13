@@ -110,7 +110,7 @@
 <summary>Ответ</summary>
 
 
-[pom.xml](https://github.com/vanechaev/study/blob/68c768846d8ba99e8e3b792cc904235b0b305539/mnt/09-ci-03-cicd/files/maven-metadata%20(1).xml).
+[pom.xml](https://github.com/vanechaev/study/blob/68c768846d8ba99e8e3b792cc904235b0b305539/mnt/09-ci-03-cicd/files/pom.xml).
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
