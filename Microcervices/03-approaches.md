@@ -54,10 +54,12 @@
 
 Ответ:
 
-[Сразу же приходит в голову стандарт мониторинга - стэк ELK. Но я бы предложил стек OpenSearch в связке Kafka + LogStash + OpenSearch + OpenSearchDashboards.
+Сразу же приходит в голову стандарт мониторинга - стэк ELK. Но я бы предложил стек OpenSearch в связке Kafka + LogStash + OpenSearch + OpenSearchDashboards.
 - OpenSearch включает в себя все основные функции поиска и аналитики Elasticsearch и поддерживает дополнительные плагины и интеграции, предоставляемые сообществом.
 - OpenSearch обладает многими общими функциями, но с акцентом на ценности открытого исходного кода и разработку, ориентированную на сообщество.
-- OpenSearch имеет более оптимизированный механизм выполнения запросов и лучше справляется со сложными запросами. Он также имеет меньшую задержку для поисковых запросов.](https://humalect.com/blog/opensearch-vs-elasticsearch)
+- OpenSearch имеет более оптимизированный механизм выполнения запросов и лучше справляется со сложными запросами. Он также имеет меньшую задержку для поисковых запросов.
+
+[Opensearch против Elasticsearch](https://humalect.com/blog/opensearch-vs-elasticsearch)
 
 <details>
 <summary>Задача 3: Мониторинг</summary>
@@ -79,4 +81,4 @@
 
 Ответ:
 
-[Предлагаю использовать Prometheus+Grafana+Node_exporter. Он соответствует всем предьявляемым требованиям и имеет много документации с примерами](https://mcs.mail.ru/docs/additionals/cases/cases-monitoring/case-node-exporter)
+Предлагаю использовать Prometheus+Grafana+Node_exporter. Он соответствует всем предьявляемым требованиям и имеет много документации с [примерами.](https://mcs.mail.ru/docs/additionals/cases/cases-monitoring/case-node-exporter)
