@@ -12,7 +12,7 @@
 ansible-galaxy install -r requirements.yml -p roles
 ```
 
-Изменить в скаченной роли `Vector` ~/roles/vector/default/main.yaml на ip-addres от clickhouse
+Изменить в скаченной роли `Vector` (~/roles/vector/default/main.yaml) `endpoint: http://<ip-addres от clickhouse>:8123`
 
 Затем, для запусуа плейбука, можно воспользоватся следующей командой:
 
