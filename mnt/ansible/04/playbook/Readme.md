@@ -6,13 +6,13 @@
 
 Для запуска плейбука нобходимо подключить 3 ВМ с образом CentOS-7, в файле `inventory/prod.yml` указать ip-адреса созданных ВМ.
 
-Crfxfnm ROLES 
+Скачать ROLES:
 
 ```
 ansible-galaxy install -r requirements.yml -p roles
 ```
 
-Pfvtybnm ~/roles/vector/default/main.yaml ip-addres clickhouse
+Изменить в скаченной роли `Vector` ~/roles/vector/default/main.yaml на ip-addres от clickhouse
 
 Затем, для запусуа плейбука, можно воспользоватся следующей командой:
 
