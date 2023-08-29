@@ -28,3 +28,8 @@
 
 ### Ответ:
 
+### [Роль VECTOR](https://github.com/vanechaev/vector-role.git)
+
+### [Роль LIGHTHOUSE](https://github.com/vanechaev/lighthouse-role.git)
+
+### [PLAYBOOK](https://github.com/vanechaev/study/tree/da1e0c53dafee8e3b1468d36ae514d6073977e72/mnt/ansible/04/playbook)
