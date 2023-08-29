@@ -1,0 +1,13 @@
+---
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_host: nva@51.250.108.0
+vector:
+  hosts:
+    vector-01:
+      ansible_host: nva@158.160.24.251
+lighthouse:
+  hosts:
+    lighthouse-01:
+      ansible_host: nva@158.160.77.134
