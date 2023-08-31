@@ -40,7 +40,9 @@
 Ответ:
 
 Молекула с тегом 0.1.0
+![](https://github.com/vanechaev/study/blob/418ef2ecb38cd1e74900d2dd7e624603c5fc3c76/mnt/ansible/05/img/molecule.png)
 
 Тох с тегом 0.1.1
+![](img/tox.png)
 
 [ссылка на репозиторий](https://github.com/vanechaev/vector-role.git)
