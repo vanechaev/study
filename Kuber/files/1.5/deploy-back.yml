@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-back
+  labels:
+    app: app-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-back
+  template:
+    metadata:
+      labels:
+        app: app-back
+    spec:
+      containers:
+      - name: multitool
+        image: wbitt/network-multitool
+        env:
+          - name: HTTP_PORT
+            value: "8080"
+          - name: HTTPS_PORT
+            value: "11443"
+        ports:
+        - containerPort: 8080
+        - containerPort: 11443
