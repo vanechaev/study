@@ -64,7 +64,7 @@
 - количество свободной оперативной памяти: 
   - `(node_memory_MemFree_bytes / node_memory_MemTotal_bytes) * 100`
 - количество места на файловой системе:
-  -`(node_filesystem_free_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"} / node_filesystem_size_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"}) * 100`
+  - `(node_filesystem_free_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"} / node_filesystem_size_bytes{fstype!~"tmpfs|fuse.lxcfs|squashfs|vfat"}) * 100`
 
 
 ## Задание 3
